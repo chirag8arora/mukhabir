@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load staticfiles %} 
+{% block content %}
+	<!-- {% if form.errors %}
+		<script type='text/javascript'>alert("Wrong Credentials");window.location='/';</script>
+	{% endif %} -->
+	<main class="page-content" id="section-112">
+		<div class="page-inner text-center">
+			<div class="main-wrapper">
+				<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-3 text-center">
+						<div class="login-box"> 
+							
+							<h1>TrackIt</h1>
+							<form action="/loggedin/" method="POST" class="m-t-nd">{% csrf_token %}
+								
+								<br/>
+								<br/>
+									<div class="form-group">
+										<div class="glowing-border">
+										<input type="text" class="form-control" placeholder="Manager Id" id="username" name="username" value="{{ request.POST.username }}" style="color:#CB4335; font-weight: bold;" required>
+										<i class="fa fa-user"></i>
+									</div>
+									</div>
+									<br/>
+									<div class="form-group">
+										<div class="glowing-border">
+										<input type="password" name="password" id="password" placeholder="Password" value="{{ request.POST.password }}" style="color:#CB4335; font-weight: bold;" class="form-control" required>
+										<i class="fa fa-lock"></i>
+									</div>
+									</div>
+									<br/>
+									<input type="submit" class="btn btn-success btn-block" value="Login"/>
+									<input type="hidden" name="next" value="/login" />
+									
+							</form>
+
+						</div>
+					</div>
+				<div class="col-md-1"><div style="border-right:solid 1px #f9f9f9;  padding-top:250px; margin:100px 0 0;"></div></div>
+				 <div class="col-md-4"><img src="{% static 'images/tracking_logo.png' %}" class="img" alt="" width="500px" height="400px"></div>
+				<div class="col-md-2"></div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+{% endblock %}
